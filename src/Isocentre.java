@@ -5,22 +5,24 @@ import java.util.ArrayList;
  * Created by чет on 23.06.2017.
  */
 public class Isocentre {
-    private ArrayList<Beam> beams = new ArrayList<>(); // Список/Массив пучков
-    private RTMachine rtMachine; // Аппарат
-    Position position; // Полодение изоцентра (смещения)
+    private ArrayList<Beam> beams = new ArrayList<>();  // Список/Массив пучков
+    private RTMachine rtMachine;                        // Аппарат
+    private Position position;                          // Полодение изоцентра (Техника,смещения)
+
     // Конструктор
+
     Isocentre(RTMachine RT_Machine) {
-        setRtMachine(RT_Machine);
+        setRTMachine(RT_Machine);
         setPosition(new Position(RT_Machine));
     }
     Isocentre(RTMachine RT_Machine, Position position) {
-        setRtMachine(RT_Machine);
+        setRTMachine(RT_Machine);
         setPosition(position);
     }
 
     // Setters
 
-    public void setRtMachine(RTMachine rtMachine) {
+    public void setRTMachine(RTMachine rtMachine) {
         this.rtMachine = rtMachine;
     }
     public void setPosition(Position position) {

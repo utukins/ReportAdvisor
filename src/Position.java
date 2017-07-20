@@ -7,27 +7,27 @@ public class Position {
         SSD,
         SAD;
     }
-    private Technique Technique; //ТИП
-    private double SourceAxisDistance = 100; //РИО
+    private Technique Technique;            //ТИП
+    private RTMachine rtMachine;
+    private double SourceAxisDistance;      //РИО
     private double AxisSurfaceDistance = 0; //РОК
-    private double lateralOffset = 0;
-    private double longitudinalOffset = 0;
-    private double verticalOffset = 0;
+    private double lateralOffset = 0;       // Латеральное смещение
+    private double longitudinalOffset = 0;  // Продольное смещение
+    private double verticalOffset = 0;      // Вериткальное смещение
 
     // Конструктор
 
     Position (RTMachine RTMachine){
         Technique = Technique.SAD;
-        this.setSourceAxisDistance(RTMachine.getSourceAxisDistance());
+        rtMachine = RTMachine;
+        SourceAxisDistance = rtMachine.getSourceAxisDistance();
+
     }
 
     //  Setters
 
     public void setTechnique(Technique technique) {
         this.Technique = technique;
-    }
-    public void setSourceAxisDistance(double sourceAxisDistance) {
-        SourceAxisDistance = sourceAxisDistance;
     }
     public void setAxisSurfaceDistance(double axisSurfaceDistance) {
         AxisSurfaceDistance = axisSurfaceDistance;

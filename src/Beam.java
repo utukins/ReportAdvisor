@@ -16,7 +16,7 @@ public class Beam {
     private int BeamStopAngle;
     private boolean isStatic;
     private boolean hasModifier;
-    Modifiers Modifier;
+    private Modifiers Modifier;
 
     // Конструкторы
 

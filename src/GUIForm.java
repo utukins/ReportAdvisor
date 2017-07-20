@@ -5,6 +5,9 @@ import javax.swing.*;
  */
 public class GUIForm {
     JPanel Panel1 = new JPanel();
-    
+
+    private JTree tree1;
+    JFrame frame = new JFrame("Frame");
+
 }
 
