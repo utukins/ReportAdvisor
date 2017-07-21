@@ -1,6 +1,5 @@
-import javax.print.attribute.standard.MediaSize;
+import javax.swing.*;
 import java.util.ArrayList;
-
 /**Главный класс
  * Created by чет on 23.06.2017.
  */
@@ -13,7 +12,8 @@ public class RTReportAdvisor {
         RTMachines.add(Theratron);
         RTMachines.add(RokusAM);
 
-
+        GUI gui = new GUI();
+        gui.setSize(640,480);
 
         Isocentre isocentre = new Isocentre(RTMachines.get(0)); //Здесь нужен список или массив
         isocentre.setRTMachine(RTMachines.get(0));
@@ -58,21 +58,23 @@ public class RTReportAdvisor {
         isocentre2.addBeam(beam3);
         isocentre2.addBeam(beam4);
         isocentre2.addBeam(beam5);
-        Printreport(isocentre);
-        Printreport(isocentre2);
+
+
     }
 
-    public static void Printreport(Isocentre isocentre)
+    public static String Printreport(Isocentre isocentre)
     {
-        System.out.println(isocentre.getRtMachine().getRTMachineName());
-        System.out.println(isocentre.getPosition().toString());
-        System.out.println("Пучки:");
+        StringBuilder sb = new StringBuilder();
+        sb.append(isocentre.getRtMachine().getRTMachineName() + '\n');
+        sb.append(isocentre.getPosition().toString() + '\n');
+        sb.append("Пучки:" + '\n');
         for (Beam beam : isocentre.getBeams()) {
-            System.out.print(beam.getBeamName() + " " + beam.getBeamSizeX() + 'x' +
+            sb.append(beam.getBeamName() + " " + beam.getBeamSizeX() + 'x' +
             beam.getBeamSizeY() + "cm " +
             beam.getBeamStartAngle() + " - " + beam.getBeamStopAngle()+  "гр " + isocentre.getRtMachine().getTimeInFormat(beam)+
             beam.getModifier() + " " +"\n");
         }
-        System.out.println();
+        sb.append('\n');
+        return sb.toString();
     }
 }
