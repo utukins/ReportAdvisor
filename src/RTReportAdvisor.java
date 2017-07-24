@@ -59,7 +59,6 @@ public class RTReportAdvisor {
         isocentre2.addBeam(beam4);
         isocentre2.addBeam(beam5);
 
-
     }
 
     public static String Printreport(Isocentre isocentre)
