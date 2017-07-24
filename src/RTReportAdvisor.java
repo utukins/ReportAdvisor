@@ -13,7 +13,7 @@ public class RTReportAdvisor {
         RTMachines.add(RokusAM);
 
         GUI gui = new GUI();
-        gui.setSize(640,480);
+        gui.setSize(900,480);
 
         Isocentre isocentre = new Isocentre(RTMachines.get(0)); //Здесь нужен список или массив
         isocentre.setRTMachine(RTMachines.get(0));
