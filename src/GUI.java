@@ -82,6 +82,7 @@ public class GUI extends JFrame {
     public GUI() {
         setContentPane(mainPanel);
         setVisible(true);
+        Controller controller = new Controller(this);
         //Формат вещественных чисел
         NumberFormat number = new DecimalFormat("#0.#");
         beamTimeValue.setFormatterFactory(new DefaultFormatterFactory());
@@ -92,6 +93,7 @@ public class GUI extends JFrame {
                 System.exit(0);
             }
         });
+        createBeam.addActionListener(controller);
     }
 
 }
