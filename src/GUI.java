@@ -5,7 +5,7 @@ import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
+import java.text.*;
 import java.text.NumberFormat;
 
 /**
@@ -17,8 +17,8 @@ public class GUI extends JFrame {
     private JPanel beamPanel;
     private JPanel beamPropPanel;
     private JPanel isoPanel;
-    private JButton CreateIsocentre;
-    private JButton DeleteIsocentre;
+    private JButton createIsocentre;
+    private JButton deleteIsocentre;
     private JPanel beamButtons;
     private JButton createBeam;
     private JButton deleteBeam;
@@ -61,17 +61,17 @@ public class GUI extends JFrame {
     private JTextField isoOffsetCommentValue;
     private JPanel TeamplatesPanel;
     private JPanel TemplatesButtons;
-    private JButton CreateTemplate;
-    private JButton DeleteTemplate;
+    private JButton createTemplate;
+    private JButton deleteTemplate;
     private JList TemplatesList;
-    private JButton LoadTemplate;
+    private JButton loadTemplate;
     private JPanel PrintPreviewPanel;
     private JLabel PrintPreviewLabel;
     private JLabel templatesLabel;
     private JLabel isoLabel;
     private JLabel beamLabel;
     private JPanel printButtons;
-    private JButton Print;
+    private JButton printReport;
     private JButton exitButton;
     private JTextArea templatesDescription;
     private JLabel templatesDescriptionLabel;
@@ -79,9 +79,28 @@ public class GUI extends JFrame {
     private JEditorPane printPreviewEditor;
     private JEditorPane editoPane;
 
+
     public GUI() {
         setContentPane(mainPanel);
         setVisible(true);
+        // Задаем каждому компоненту ActionCommand для идентификации в контроллере
+        createIsocentre.setActionCommand("createIsocentre");
+        deleteIsocentre.setActionCommand("deleteIsocentre");
+        createBeam.setActionCommand("createBeam");
+        deleteBeam.setActionCommand("deleteBeam");
+        loadTemplate.setActionCommand("loadTemplate");
+        createTemplate.setActionCommand("createTemplate");
+        deleteTemplate.setActionCommand("deleteTemplate");
+        printReport.setActionCommand("printReport");
+        exitButton.setActionCommand("exitButton");
+        radioSSD.setActionCommand("radioSSD");
+        radioSSD.setActionCommand("radioSSD");
+        radioDown.setActionCommand("radioDown");
+        radioUp.setActionCommand("radioUp");
+        radioLeft.setActionCommand("radioLeft");
+        radioRight.setActionCommand("radioRight");
+
+
         Controller controller = new Controller(this);
         //Формат вещественных чисел
         NumberFormat number = new DecimalFormat("#0.#");
@@ -94,6 +113,7 @@ public class GUI extends JFrame {
             }
         });
         createBeam.addActionListener(controller);
+
     }
 
 }

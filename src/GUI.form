@@ -29,7 +29,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="cf461" class="javax.swing.JButton" binding="CreateIsocentre">
+              <component id="cf461" class="javax.swing.JButton" binding="createIsocentre">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -38,7 +38,7 @@
                   <text value="Добавить изоцентр"/>
                 </properties>
               </component>
-              <component id="42eb3" class="javax.swing.JButton" binding="DeleteIsocentre">
+              <component id="42eb3" class="javax.swing.JButton" binding="deleteIsocentre">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -449,7 +449,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="ef296" class="javax.swing.JButton" binding="CreateTemplate">
+              <component id="ef296" class="javax.swing.JButton" binding="createTemplate">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -458,7 +458,7 @@
                   <text value="Добавить"/>
                 </properties>
               </component>
-              <component id="6b58c" class="javax.swing.JButton" binding="DeleteTemplate">
+              <component id="6b58c" class="javax.swing.JButton" binding="deleteTemplate">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -467,7 +467,7 @@
                   <text value="Удалить"/>
                 </properties>
               </component>
-              <component id="977f4" class="javax.swing.JButton" binding="LoadTemplate">
+              <component id="977f4" class="javax.swing.JButton" binding="loadTemplate">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -521,7 +521,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="47d9e" class="javax.swing.JButton" binding="Print">
+              <component id="47d9e" class="javax.swing.JButton" binding="printReport">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
