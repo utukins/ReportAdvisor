@@ -1,9 +1,11 @@
+package Model;
+
 /**
  * Этот класс описывает аппарат: РИО, мониторные единицы, название.
  * Created by чет on 23.06.2017.
  */
 public class RTMachine {
-    enum TimeFormat {
+    public enum TimeFormat {
         SECONDS,
         MINUTES,
         MINUTES_SECONDS
@@ -12,7 +14,7 @@ public class RTMachine {
     private TimeFormat timeFormat; // Формат единиц времени аппарата
     private double SourceAxisDistance = 100; // РИО аппарата в сантиметрах
     // Конструктор
-    RTMachine (String name, double SAD, TimeFormat TimeFormat ) {
+    public RTMachine(String name, double SAD, TimeFormat TimeFormat) {
         RTMachineName = name;
         timeFormat = TimeFormat;
         SourceAxisDistance = SAD;

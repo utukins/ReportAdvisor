@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.ArrayList;
 
 /**
@@ -11,7 +13,7 @@ public class Isocentre {
 
     // Конструктор
 
-    Isocentre(RTMachine RT_Machine) {
+    public Isocentre(RTMachine RT_Machine) {
         setRTMachine(RT_Machine);
         setPosition(new Position(RT_Machine));
     }

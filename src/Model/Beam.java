@@ -1,9 +1,11 @@
+package Model;
+
 /**
  * Этот абстрактный класс описывает основноые парпаметры пучка
  * Created by чет on 23.06.2017.
  */
 public class Beam {
-    enum Modifiers {
+    public enum Modifiers {
         No,
         Blocks,
         Wedge
@@ -20,15 +22,15 @@ public class Beam {
 
     // Конструкторы
 
-    Beam() {
-        setBeamName("Beam");
+    public Beam() {
+        setBeamName("Model.Beam");
         setBeamSizeX(10);
         setBeamSizeY(10);
         setBeamTime(0);
         setBeamStartAngle(0);
         setModifier(Modifiers.No);
     }
-    Beam(String BeamName, double BeamSizeX, double BeamSizeY, int BeamStatictAngle ,int BeamTime){
+    public Beam(String BeamName, double BeamSizeX, double BeamSizeY, int BeamStatictAngle ,int BeamTime){
         setBeamName(BeamName);
         setBeamSizeX(BeamSizeX);
         setBeamSizeY(BeamSizeY);
@@ -36,7 +38,7 @@ public class Beam {
         setBeamTime(BeamTime);
         setModifier(Modifiers.No);
     }
-    Beam(String BeamName, double BeamSizeX, double BeamSizeY, int BeamStartAngle, int BeamStopAngle ,int BeamTime){
+    public Beam(String BeamName, double BeamSizeX, double BeamSizeY, int BeamStartAngle, int BeamStopAngle ,int BeamTime){
         setBeamName(BeamName);
         setBeamSizeX(BeamSizeX);
         setBeamSizeY(BeamSizeY);

@@ -1,13 +1,14 @@
+package View;
+
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.*;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+import Controller.Controller;
 /**
  * Created by чет on 21.07.2017.
  */
@@ -100,20 +101,39 @@ public class GUI extends JFrame {
         radioLeft.setActionCommand("radioLeft");
         radioRight.setActionCommand("radioRight");
 
+        setTextTest("Start");
 
-        Controller controller = new Controller(this);
+
         //Формат вещественных чисел
+
         NumberFormat number = new DecimalFormat("#0.#");
         beamTimeValue.setFormatterFactory(new DefaultFormatterFactory());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+
+                if(e.getActionCommand()== "exitButton")setTextTest("Exit");
+                //System.exit(0);
             }
         });
-        createBeam.addActionListener(controller);
 
+
+    }
+
+    public void setController (Controller controller){
+        createBeam.addActionListener(controller);
+        createIsocentre.addActionListener(controller);
+        deleteIsocentre.addActionListener(controller);
+        createBeam.addActionListener(controller);
+        deleteBeam.addActionListener(controller);
+        printReport.addActionListener(controller);
+        exitButton.addActionListener(controller);
+    };
+
+    public void setTextTest (String textTest) {
+        printPreviewEditor.setText(textTest);
     }
 
 }

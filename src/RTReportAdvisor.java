@@ -1,5 +1,12 @@
-import javax.swing.*;
+import Controller.Controller;
+import Model.Beam;
+import Model.Isocentre;
+import Model.Position;
+import Model.RTMachine;
+import View.GUI;
+
 import java.util.ArrayList;
+
 /**Главный класс
  * Created by чет on 23.06.2017.
  */
@@ -58,6 +65,8 @@ public class RTReportAdvisor {
         isocentre2.addBeam(beam3);
         isocentre2.addBeam(beam4);
         isocentre2.addBeam(beam5);
+
+
 
     }
 

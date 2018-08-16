@@ -1,9 +1,11 @@
+package Model;
+
 /**
  * Этот класс описывает укладку
  * Created by чет on 23.06.2017.
  */
 public class Position {
-    enum Technique {
+    public enum Technique {
         SSD,
         SAD;
     }
@@ -17,7 +19,7 @@ public class Position {
 
     // Конструктор
 
-    Position (RTMachine RTMachine){
+    public Position(RTMachine RTMachine){
         Technique = Technique.SAD;
         rtMachine = RTMachine;
         SourceAxisDistance = rtMachine.getSourceAxisDistance();
