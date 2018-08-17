@@ -8,16 +8,19 @@ import java.util.ArrayList;
  */
 public class Isocentre {
     private ArrayList<Beam> beams = new ArrayList<>();  // Список/Массив пучков
-    private RTMachine rtMachine;                        // Аппарат
-    private Position position;                          // Полодение изоцентра (Техника,смещения)
+    private RTMachine rtMachine = new RTMachine("Rokus", 75, RTMachine.TimeFormat.SECONDS);                        // Аппарат
+    private Position position = new Position(rtMachine);                          // Полодение изоцентра (Техника,смещения)
 
     // Конструктор
+    public Isocentre ()
+    {
 
+    }
     public Isocentre(RTMachine RT_Machine) {
         setRTMachine(RT_Machine);
         setPosition(new Position(RT_Machine));
     }
-    Isocentre(RTMachine RT_Machine, Position position) {
+    public Isocentre(RTMachine RT_Machine, Position position) {
         setRTMachine(RT_Machine);
         setPosition(position);
     }

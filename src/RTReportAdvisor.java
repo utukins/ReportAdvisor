@@ -1,8 +1,5 @@
 import Controller.Controller;
-import Model.Beam;
-import Model.Isocentre;
-import Model.Position;
-import Model.RTMachine;
+import Model.*;
 import View.GUI;
 
 import java.util.ArrayList;
@@ -66,8 +63,10 @@ public class RTReportAdvisor {
         isocentre2.addBeam(beam4);
         isocentre2.addBeam(beam5);
 
-
-
+        Model model = new Model();
+        model.addIsocentre(isocentre);
+        Controller controller = new Controller(gui, model);
+        //gui.setController(controller);
     }
 
     public static String Printreport(Isocentre isocentre)

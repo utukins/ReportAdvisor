@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Isocentre;
+import Model.Model;
 import View.GUI;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -13,21 +14,54 @@ import java.awt.event.ActionListener;
  */
 public class Controller implements ActionListener, ChangeListener {
     GUI gui;
-    Isocentre isocentre;
+    Model model;
 
-    public Controller(GUI gui, Isocentre isocentre) {
+    public Controller(GUI gui, Model model) {
         this.gui = gui;
-        this.isocentre = isocentre;
+        this.model = model;
         gui.setController(this);
-        this.gui.setTextTest("Hello");
+        gui.setTextTest("Hello");
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         // Здесь нужно добавить обработчики нажатий на кнопки и поля в GUI
-        if (e.getActionCommand()=="createIsocentre") {
-            gui.setTextTest(isocentre.getBeams().toString());
+        // Создание/Удаление Изоцентра
+        if (e.getActionCommand().equals("createIsocentre")) {
+            model.addIsocentre(new Isocentre());
+            gui.setTextTest("Isocentre created");
         }
-        gui.setTextTest(isocentre.getBeams().toString());
+        if (e.getActionCommand().equals("deleteIsocentre")) {
+
+            gui.setTextTest("deleteIsocentre");
+        }
+        //  Создание/Удаление Пучка
+        if (e.getActionCommand().equals("createBeam")) {
+
+            gui.setTextTest("Beam created");
+        }
+        if (e.getActionCommand().equals("deleteBeam")) {
+
+            gui.setTextTest("deleteBeam");
+        }
+        // Создание/Загрузка/Удаление Шаблона
+        if (e.getActionCommand().equals("createTemplate")) {
+
+            gui.setTextTest("createTemplate");
+        }
+        if (e.getActionCommand().equals("loadTemplate")) {
+
+            gui.setTextTest("loadTemplate");
+        }
+        if (e.getActionCommand().equals("deleteTemplate")) {
+
+            gui.setTextTest("deleteTemplate");
+        }
+        // Кнопка печати
+        if (e.getActionCommand().equals("printReport")) {
+
+            gui.setTextTest("printReport: изоцентров - " + model.getIsocentreList().toArray().length);
+
+        }
     }
 
 

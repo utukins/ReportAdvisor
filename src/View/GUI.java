@@ -123,17 +123,19 @@ public class GUI extends JFrame {
     }
 
     public void setController (Controller controller){
-        createBeam.addActionListener(controller);
         createIsocentre.addActionListener(controller);
         deleteIsocentre.addActionListener(controller);
         createBeam.addActionListener(controller);
         deleteBeam.addActionListener(controller);
+        createTemplate.addActionListener(controller);
+        loadTemplate.addActionListener(controller);
+        deleteTemplate.addActionListener(controller);
         printReport.addActionListener(controller);
         exitButton.addActionListener(controller);
     };
 
     public void setTextTest (String textTest) {
-        printPreviewEditor.setText(textTest);
+        printPreviewEditor.setText(printPreviewEditor.getText() + "\n" + textTest);
     }
 
 }
