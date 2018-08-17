@@ -11,5 +11,7 @@ public class Model {
     public void addIsocentre(Isocentre isocentre) {
         isocentreList.add(isocentre);
     }
-
+    public void addBeam(int IsocentreNumber, Beam beam){
+        isocentreList.get(IsocentreNumber).addBeam(beam);
+    }
 }
