@@ -78,6 +78,9 @@ public class GUI extends JFrame {
     private JLabel templatesDescriptionLabel;
     private JPanel descriptionPanel;
     private JEditorPane printPreviewEditor;
+    private JScrollPane printScrollPane;
+    private JScrollPane beamScrollPane;
+    private JScrollPane TemplatesScrollPane;
     private JEditorPane editoPane;
 
 
@@ -109,17 +112,6 @@ public class GUI extends JFrame {
         NumberFormat number = new DecimalFormat("#0.#");
         beamTimeValue.setFormatterFactory(new DefaultFormatterFactory());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if(e.getActionCommand()== "exitButton")setTextTest("Exit");
-                //System.exit(0);
-            }
-        });
-
-
     }
 
     public void setController (Controller controller){
@@ -138,4 +130,15 @@ public class GUI extends JFrame {
         printPreviewEditor.setText(printPreviewEditor.getText() + "\n" + textTest);
     }
 
+    public JList getIsoList() {
+        return isoList;
+    }
+
+    public JList getBeamList() {
+        return beamList;
+    }
+
+    public JList getTemplatesList() {
+        return TemplatesList;
+    }
 }

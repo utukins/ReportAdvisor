@@ -60,13 +60,18 @@ public class Controller implements ActionListener, ChangeListener {
         if (e.getActionCommand().equals("printReport")) {
 
             gui.setTextTest("printReport: изоцентров - " + model.getIsocentreList().toArray().length);
-
         }
+        // Кнопка Выход
+        if(e.getActionCommand()== "exitButton")
+        System.exit(0);
     }
 
 
     @Override
     public void stateChanged(ChangeEvent e) {
 
+    }
+    public void updateGUI (){
+       // gui.getIsoList().add("Isocontre", );
     }
 }
