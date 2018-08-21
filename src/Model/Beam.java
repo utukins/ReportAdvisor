@@ -114,4 +114,9 @@ public class Beam {
     public boolean hasModifier() {
         return hasModifier;
     }
+
+    @Override
+    public String toString() {
+        return new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " agnle " + BeamStartAngle);
+    }
 }

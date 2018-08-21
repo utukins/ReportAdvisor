@@ -9,6 +9,8 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import Controller.Controller;
+import Model.Model;
+
 /**
  * Created by чет on 21.07.2017.
  */
@@ -84,6 +86,8 @@ public class GUI extends JFrame {
     private JEditorPane editoPane;
 
 
+
+
     public GUI() {
         setContentPane(mainPanel);
         setVisible(true);
@@ -124,10 +128,14 @@ public class GUI extends JFrame {
         deleteTemplate.addActionListener(controller);
         printReport.addActionListener(controller);
         exitButton.addActionListener(controller);
+        isoList.addListSelectionListener(controller);
     };
 
     public void setTextTest (String textTest) {
         printPreviewEditor.setText(printPreviewEditor.getText() + "\n" + textTest);
+    }
+    public void clearTextTest () {
+        printPreviewEditor.setText("");
     }
 
     public JList getIsoList() {
@@ -141,4 +149,5 @@ public class GUI extends JFrame {
     public JList getTemplatesList() {
         return TemplatesList;
     }
+
 }
