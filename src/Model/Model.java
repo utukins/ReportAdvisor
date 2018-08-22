@@ -14,4 +14,7 @@ public class Model {
     public void addBeam(int IsocentreNumber, Beam beam){
         isocentreList.get(IsocentreNumber).addBeam(beam);
     }
+    public void removeIsocentre (int NumberOfIsocentre) {
+        isocentreList.remove(NumberOfIsocentre);
+    }
 }

@@ -46,18 +46,29 @@ public class Controller implements ActionListener, ChangeListener, ListSelection
         }
         if (e.getActionCommand().equals("deleteIsocentre")) {
             gui.clearTextTest();
-            gui.setTextTest("deleteIsocentre");
+            try {
+                model.removeIsocentre(gui.getIsoList().getSelectedIndex());
+            }
+            catch (Exception exceptIso) {
+                gui.setTextTest(model.getIsocentreList().toString());
+            }
+            updateGUI();
         }
         //  Создание/Удаление Пучка
         if (e.getActionCommand().equals("createBeam")) {
             gui.clearTextTest();
-            model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).addBeam(new Beam("Beam1", 10, 10, 222, 432));
+            model.addBeam(gui.getIsoList().getSelectedIndex(), new Beam("Beam", 10, 10, 222, 432));
             gui.setTextTest("Beam created");
             updateGUI();
         }
         if (e.getActionCommand().equals("deleteBeam")) {
-
+            gui.clearTextTest();
+            try {
+                model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).removeBeam(gui.getBeamList().getSelectedIndex());
+            }
+            catch (Exception exceptBeam) {}
             gui.setTextTest("deleteBeam");
+            updateGUI();
         }
         // Создание/Загрузка/Удаление Шаблона
         if (e.getActionCommand().equals("createTemplate")) {
