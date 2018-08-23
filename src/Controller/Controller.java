@@ -6,8 +6,6 @@ import Model.Model;
 import View.GUI;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
@@ -17,7 +15,7 @@ import java.awt.event.ActionListener;
  * Данный класс должен обрабатывать взаимодействие GUI и модели.
  * Created by чет on 26.07.2017.
  */
-public class Controller implements ActionListener, ChangeListener, ListSelectionListener {
+public class Controller implements ActionListener, ListSelectionListener {
     private GUI gui;
     private Model model;
     private DefaultListModel<Isocentre> isoListModel = new DefaultListModel<Isocentre>();
@@ -41,75 +39,62 @@ public class Controller implements ActionListener, ChangeListener, ListSelection
         // Создание/Удаление Изоцентра
         if (e.getActionCommand().equals("createIsocentre")) {
             model.addIsocentre(new Isocentre());
-            gui.setTextTest("Isocentre created");
             updateGUI();
         }
         if (e.getActionCommand().equals("deleteIsocentre")) {
-            gui.clearTextTest();
             try {
                 model.removeIsocentre(gui.getIsoList().getSelectedIndex());
             }
             catch (Exception exceptIso) {
-                gui.setTextTest(model.getIsocentreList().toString());
             }
+            isoListModel.clear();
             updateGUI();
         }
         //  Создание/Удаление Пучка
         if (e.getActionCommand().equals("createBeam")) {
-            gui.clearTextTest();
             model.addBeam(gui.getIsoList().getSelectedIndex(), new Beam("Beam", 10, 10, 222, 432));
-            gui.setTextTest("Beam created");
+            isoListModel.clear();
             updateGUI();
         }
         if (e.getActionCommand().equals("deleteBeam")) {
-            gui.clearTextTest();
             try {
-                model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).removeBeam(gui.getBeamList().getSelectedIndex());
+                model.removeBeam(gui.getIsoList().getSelectedIndex(), gui.getBeamList().getSelectedIndex());
             }
             catch (Exception exceptBeam) {}
-            gui.setTextTest("deleteBeam");
             updateGUI();
         }
         // Создание/Загрузка/Удаление Шаблона
         if (e.getActionCommand().equals("createTemplate")) {
-
-            gui.setTextTest("createTemplate");
-        }
+            }
         if (e.getActionCommand().equals("loadTemplate")) {
-
-            gui.setTextTest("loadTemplate");
-        }
+            }
         if (e.getActionCommand().equals("deleteTemplate")) {
-
-            gui.setTextTest("deleteTemplate");
-        }
+            isoListModel.clear();
+            }
         // Кнопка печати
         if (e.getActionCommand().equals("printReport")) {
-            gui.getIsoList().setSelectedIndex(0);
-            gui.setTextTest("printReport: изоцентров - " + model.getIsocentreList().toArray().length);
+            gui.clearTextTest();
+            gui.setTextTest("printReport:" +"\n" + model.toString());
         }
         // Кнопка Выход
         if (e.getActionCommand() == "exitButton")
             System.exit(0);
     }
 
-    @Override
-    public void stateChanged(ChangeEvent e) {
-
-    }
     public void updateGUI (){
         for (Isocentre isocentre: model.getIsocentreList()) {
             if (!isoListModel.contains(isocentre))
                 isoListModel.addElement(isocentre);
         }
-        beamListModel.clear();
         try {
             for (Beam beam: model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).getBeams()) {
                 if (beamListModel.contains(beam)==false)
                     beamListModel.addElement(beam);
             }
         }
-            catch (Exception e) {}
+            catch (Exception e) {
+                beamListModel.clear();
+            }
          gui.validate();
     }
 
@@ -117,4 +102,5 @@ public class Controller implements ActionListener, ChangeListener, ListSelection
     public void valueChanged(ListSelectionEvent e) {
         updateGUI();
     }
+
 }

@@ -65,6 +65,7 @@ public class RTReportAdvisor {
 
         Model model = new Model();
         model.addIsocentre(isocentre);
+        model.addIsocentre(isocentre2);
         Controller controller = new Controller(gui, model);
         //gui.setController(controller);
     }

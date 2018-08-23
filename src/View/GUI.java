@@ -129,7 +129,8 @@ public class GUI extends JFrame {
         printReport.addActionListener(controller);
         exitButton.addActionListener(controller);
         isoList.addListSelectionListener(controller);
-    };
+        beamList.addListSelectionListener(controller);
+    }
 
     public void setTextTest (String textTest) {
         printPreviewEditor.setText(printPreviewEditor.getText() + "\n" + textTest);

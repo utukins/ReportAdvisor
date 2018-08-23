@@ -10,19 +10,33 @@ public class Isocentre {
     private ArrayList<Beam> beams = new ArrayList<>();  // Список/Массив пучков
     private RTMachine rtMachine = new RTMachine("Rokus", 75, RTMachine.TimeFormat.SECONDS);                        // Аппарат
     private Position position = new Position(rtMachine);                          // Полодение изоцентра (Техника,смещения)
+    private String Name = new String("No Name");
+    private static int counter;
+
+    static {
+        counter = 0;
+    }
 
     // Конструктор
     public Isocentre ()
     {
-
+        counter++;
+        Name = new String("DefaultIsocentre " + counter);
     }
     public Isocentre(RTMachine RT_Machine) {
+        this();
         setRTMachine(RT_Machine);
         setPosition(new Position(RT_Machine));
     }
     public Isocentre(RTMachine RT_Machine, Position position) {
+        this();
         setRTMachine(RT_Machine);
         setPosition(position);
+    }
+
+    @Override
+    public String toString() {
+        return this.Name;
     }
 
     // Setters
