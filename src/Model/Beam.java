@@ -1,7 +1,7 @@
 package Model;
 
 /**
- * Этот абстрактный класс описывает основноые парпаметры пучка
+ * Этот класс описывает парпаметры пучка
  * Created by чет on 23.06.2017.
  */
 public class Beam {
@@ -117,6 +117,7 @@ public class Beam {
 
     @Override
     public String toString() {
-        return new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " agnle " + BeamStartAngle);
+        return isStatic?(new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " Угол " + BeamStartAngle)):
+                (new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " Сектор " + BeamStartAngle + " - " + BeamStopAngle));
     }
 }

@@ -4,7 +4,6 @@ import Model.Isocentre;
 import Model.Beam;
 import Model.Model;
 import View.GUI;
-
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -74,7 +73,7 @@ public class Controller implements ActionListener, ListSelectionListener {
         // Кнопка печати
         if (e.getActionCommand().equals("printReport")) {
             gui.clearTextTest();
-            gui.setTextTest("printReport:" +"\n" + model.toString());
+            gui.setTextTest(model.toString());
         }
         // Кнопка Выход
         if (e.getActionCommand() == "exitButton")

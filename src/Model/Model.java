@@ -2,6 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * Этот класс описывает Модель из шаблона MVP
+ */
 public class Model {
     protected  ArrayList<Isocentre> isocentreList = new ArrayList<Isocentre>();
 
@@ -24,10 +27,24 @@ public class Model {
     @Override
     public String toString() {
         String result = new String();
-        int counter = 0;
+        int counter = 1;
+        StringBuilder sb = new StringBuilder();
         for (Isocentre isocentre : isocentreList) {
-            result = counter++ + " " + isocentre.toString() + "\n";
+            sb = sb.append(counter).append(") ").
+                    append(isocentre.toString()).
+                    append("\n");
+            int beamCount = 1;
+            for(Beam beam : isocentre.getBeams()) {
+                sb.append("    ").
+                   append(beamCount).
+                   append(".").
+                   append(beam.toString()).
+                   append("\n");
+                beamCount++;
+            }
+            counter++;
         }
-        return result;
+        result = sb.toString();
+        return result ;
     }
 }

@@ -1,7 +1,7 @@
 package Model;
 
 /**
- * Этот класс описывает укладку
+ * Этот класс описывает укладку(смещения)
  * Created by чет on 23.06.2017.
  */
 public class Position {
@@ -23,7 +23,6 @@ public class Position {
         Technique = Technique.SAD;
         rtMachine = RTMachine;
         SourceAxisDistance = rtMachine.getSourceAxisDistance();
-
     }
 
     //  Setters

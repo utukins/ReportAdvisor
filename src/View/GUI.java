@@ -1,17 +1,13 @@
 package View;
 
+import Controller.Controller;
 import javax.swing.*;
 import javax.swing.text.DefaultFormatterFactory;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import Controller.Controller;
-import Model.Model;
-
 /**
+ * Этот класс описывает вид из шаблона MVP
  * Created by чет on 21.07.2017.
  */
 public class GUI extends JFrame {
@@ -110,7 +106,6 @@ public class GUI extends JFrame {
 
         setTextTest("Start");
 
-
         //Формат вещественных чисел
 
         NumberFormat number = new DecimalFormat("#0.#");
@@ -136,7 +131,7 @@ public class GUI extends JFrame {
         printPreviewEditor.setText(printPreviewEditor.getText() + "\n" + textTest);
     }
     public void clearTextTest () {
-        printPreviewEditor.setText("");
+        printPreviewEditor.setText("Report:");
     }
 
     public JList getIsoList() {
@@ -150,5 +145,4 @@ public class GUI extends JFrame {
     public JList getTemplatesList() {
         return TemplatesList;
     }
-
 }

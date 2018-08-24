@@ -1,7 +1,9 @@
 package Controller;
+/**
+ * Этот класс описсывает котроллер из шаблона MVP
+ */
 
 import Model.Isocentre;
-
 import javax.swing.*;
 
 public class IsocentreController {
@@ -15,5 +17,4 @@ public class IsocentreController {
     public void update(){
 
     }
-
 }
