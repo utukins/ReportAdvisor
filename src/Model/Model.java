@@ -24,6 +24,9 @@ public class Model {
         isocentreList.get(IndexOfIsocentre).removeBeam(IndexOfBeam);
     }
 
+    public boolean contains(Isocentre isocentre){
+        return isocentreList.contains(isocentre);
+    }
     @Override
     public String toString() {
         String result = new String();

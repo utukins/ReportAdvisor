@@ -51,9 +51,25 @@ public class Controller implements ActionListener, ListSelectionListener {
         }
         //  Создание/Удаление Пучка
         if (e.getActionCommand().equals("createBeam")) {
-            model.addBeam(gui.getIsoList().getSelectedIndex(), new Beam("Beam", 10, 10, 222, 432));
+            int selectedIndex = gui.getIsoList().getSelectedIndex();
+            String beamName = new String();
+            double beamX;
+            double beamY;
+            int startAngle;
+            int stopAngle;
+            int time;
+
+            beamName = gui.getBeamName();
+            beamX = gui.getBeamSizeX();
+            beamY = gui.getBeamSizeY();
+            startAngle = gui.getBeamStartAngle();
+            stopAngle = gui.getBeamStopAngle();
+        //    time = Integer.parseInt(gui.getBeamTime());
+            time = 555;
+            model.addBeam(selectedIndex, new Beam(beamName, beamX, beamY, startAngle,stopAngle, time));
             isoListModel.clear();
             updateGUI();
+            gui.getIsoList().setSelectedIndex(selectedIndex);
         }
         if (e.getActionCommand().equals("deleteBeam")) {
             try {
@@ -81,25 +97,62 @@ public class Controller implements ActionListener, ListSelectionListener {
     }
 
     public void updateGUI (){
+        //Обновляем отображение изоцентров в соответствии с моделью
         for (Isocentre isocentre: model.getIsocentreList()) {
             if (!isoListModel.contains(isocentre))
                 isoListModel.addElement(isocentre);
         }
+        for (int i = 0; i < isoListModel.size();i++) {
+            if(!model.contains(isoListModel.get(i))) {
+                isoListModel.remove(i);
+            }
+        }
+        //Обновляем отображение пучков в соответствии с моделью
         try {
             for (Beam beam: model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).getBeams()) {
                 if (beamListModel.contains(beam)==false)
                     beamListModel.addElement(beam);
             }
-        }
-            catch (Exception e) {
-                beamListModel.clear();
+            for (int i = 0; i < beamListModel.size();i++) {
+                if(!model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).getBeams().contains(beamListModel.get(i))) {
+                    beamListModel.remove(i);
+                }
             }
-         gui.validate();
+        }
+        catch (Exception e) {
+            beamListModel.clear();
+        }
+        //Обновляем отображающуюся информацию в соответствии с выделенным изоцентром
+
+        //Обновляем отображающуюся информацию в соответствии с выделенным пучком
+        try {
+            gui.setBeamName(model.getIsocentreList().get(gui.getIsoList().getSelectedIndex())
+                    .getBeams().get(gui.getBeamList().getSelectedIndex()).getBeamName());
+            gui.setBeamSizeX(model.getIsocentreList().get(gui.getIsoList().getSelectedIndex())
+                    .getBeams().get(gui.getBeamList().getSelectedIndex()).getBeamSizeX());
+            gui.setBeamSizeY(model.getIsocentreList().get(gui.getIsoList().getSelectedIndex())
+                    .getBeams().get(gui.getBeamList().getSelectedIndex()).getBeamSizeY());
+            gui.setBeamStartAngle(model.getIsocentreList().get(gui.getIsoList().getSelectedIndex())
+                    .getBeams().get(gui.getBeamList().getSelectedIndex()).getBeamStartAngle());
+            gui.setBeamStopAngle(model.getIsocentreList().get(gui.getIsoList().getSelectedIndex())
+                    .getBeams().get(gui.getBeamList().getSelectedIndex()).getBeamStopAngle());
+            gui.setBeamTime(model.getIsocentreList().get(gui.getIsoList().getSelectedIndex())
+                    .getBeams().get(gui.getBeamList().getSelectedIndex()).getBeamTime());
+        } catch (Exception e) {
+            //e.printStackTrace();
+            gui.setBeamName("Не выбран Пучок");
+            gui.setBeamSizeX(0);
+            gui.setBeamSizeY(0);
+            gui.setBeamStartAngle(0);
+            gui.setBeamStopAngle(0);
+            gui.setBeamTime(0);
+        }
+        //
+        gui.validate();
     }
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
         updateGUI();
     }
-
 }

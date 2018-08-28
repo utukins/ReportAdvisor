@@ -1,9 +1,11 @@
 package View;
 
 import Controller.Controller;
+import Model.Beam;
+
 import javax.swing.*;
 import javax.swing.text.DefaultFormatterFactory;
-import java.text.DecimalFormat;
+import java.awt.event.ActionListener;import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
@@ -104,6 +106,8 @@ public class GUI extends JFrame {
         radioLeft.setActionCommand("radioLeft");
         radioRight.setActionCommand("radioRight");
 
+        beamSizeX.setValue(55);
+
         setTextTest("Start");
 
         //Формат вещественных чисел
@@ -125,8 +129,49 @@ public class GUI extends JFrame {
         exitButton.addActionListener(controller);
         isoList.addListSelectionListener(controller);
         beamList.addListSelectionListener(controller);
+        beamNameValue.addActionListener(controller);
+    }
+    //Getters
+    public String getBeamName (){
+        return beamNameValue.getText();
+    }
+    public double getBeamSizeX() {
+        return Double.parseDouble(beamSizeX.getValue().toString());
+    }
+    public double getBeamSizeY() {
+        return Double.parseDouble(beamSizeY.getValue().toString());
     }
 
+    public int getBeamStartAngle() {
+        return (int)beamStartAngle.getValue();
+    }
+    public int getBeamStopAngle() {
+        return (int)beamStopAngle.getValue();
+    }
+    public String getBeamTime () {
+        return beamTimeValue.getText();
+    }
+
+    //Setters
+    public void setBeamName(String beamName) {
+        this.beamNameValue.setText(beamName);
+    }
+    public void setBeamSizeX(double beamSizeX) {
+        this.beamSizeX.setValue(beamSizeX);
+    }
+    public void setBeamSizeY(double beamSizeY) {
+        this.beamSizeY.setValue(beamSizeY);
+    }
+    public void setBeamStartAngle (int StartAngle) {
+        this.beamStartAngle.setValue(StartAngle);
+    }
+    public void setBeamStopAngle (int StopAngle) {
+        this.beamStopAngle.setValue(StopAngle);
+    }
+    public void setBeamTime (int time) {
+        this.beamTimeValue.setValue(time);
+    }
+    ////////
     public void setTextTest (String textTest) {
         printPreviewEditor.setText(printPreviewEditor.getText() + "\n" + textTest);
     }

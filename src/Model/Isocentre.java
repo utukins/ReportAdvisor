@@ -21,7 +21,7 @@ public class Isocentre {
     public Isocentre ()
     {
         counter++;
-        Name = new String("DefaultIsocentre " + counter);
+        Name = new String("Изоцентр " + counter);
     }
     public Isocentre(RTMachine RT_Machine) {
         this();
