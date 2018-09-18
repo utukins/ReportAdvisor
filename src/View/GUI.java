@@ -5,7 +5,7 @@ import Model.Beam;
 
 import javax.swing.*;
 import javax.swing.text.DefaultFormatterFactory;
-import java.awt.event.ActionListener;import java.text.DecimalFormat;
+import java.awt.event.ActionListener;import java.awt.event.KeyAdapter;import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
@@ -105,8 +105,7 @@ public class GUI extends JFrame {
         radioUp.setActionCommand("radioUp");
         radioLeft.setActionCommand("radioLeft");
         radioRight.setActionCommand("radioRight");
-
-        beamSizeX.setValue(55);
+        beamNameValue.setActionCommand("beamNameValue");
 
         setTextTest("Start");
 
@@ -115,7 +114,7 @@ public class GUI extends JFrame {
         NumberFormat number = new DecimalFormat("#0.#");
         beamTimeValue.setFormatterFactory(new DefaultFormatterFactory());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    }
+    beamNameValue.addKeyListener(new KeyAdapter() { } );}
 
     public void setController (Controller controller){
         createIsocentre.addActionListener(controller);
@@ -169,7 +168,7 @@ public class GUI extends JFrame {
         this.beamStopAngle.setValue(StopAngle);
     }
     public void setBeamTime (int time) {
-        this.beamTimeValue.setValue(time);
+        this.beamTimeValue.setValue("Time");
     }
     ////////
     public void setTextTest (String textTest) {

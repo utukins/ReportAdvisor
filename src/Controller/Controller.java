@@ -86,6 +86,17 @@ public class Controller implements ActionListener, ListSelectionListener {
         if (e.getActionCommand().equals("deleteTemplate")) {
             isoListModel.clear();
             }
+        //
+        if(e.getActionCommand().equals("beamNameValue")){
+            try {
+                model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).
+                        getBeams().get(gui.getBeamList().getSelectedIndex()).
+                        setBeamName(gui.getBeamName());
+            } catch (Exception e1) {
+
+            }
+            updateGUI();
+        }
         // Кнопка печати
         if (e.getActionCommand().equals("printReport")) {
             gui.clearTextTest();
@@ -110,7 +121,7 @@ public class Controller implements ActionListener, ListSelectionListener {
         //Обновляем отображение пучков в соответствии с моделью
         try {
             for (Beam beam: model.getIsocentreList().get(gui.getIsoList().getSelectedIndex()).getBeams()) {
-                if (beamListModel.contains(beam)==false)
+                if (!beamListModel.contains(beam))
                     beamListModel.addElement(beam);
             }
             for (int i = 0; i < beamListModel.size();i++) {

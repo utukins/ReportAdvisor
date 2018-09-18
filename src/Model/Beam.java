@@ -117,7 +117,7 @@ public class Beam {
 
     @Override
     public String toString() {
-        return isStatic?(new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " Угол " + BeamStartAngle)):
-                (new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " Сектор " + BeamStartAngle + " - " + BeamStopAngle));
+        return isStatic?(new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " Угол " + BeamStartAngle + " " + getModifier() + " Время " + getBeamTime())):
+                (new String(BeamName + " " + BeamSizeX + " x " + BeamSizeY + " Сектор " + BeamStartAngle + " - " + BeamStopAngle+ " " + getModifier() + " Время " + getBeamTime()));
     }
 }
